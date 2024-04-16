@@ -1,33 +1,45 @@
 # Minha API
 
-Esta aplicacao tem o objetivo de manter um cadastro(CRUD) simples de despesas de qualquer natureza.
+Esta aplicacao tem o objetivo de manter um cadastro de despesas.
 
 ---
 ## Como executar 
 
-
 Será necessário ter todas as libs python listadas no `requirements.txt` instaladas.
 Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, para poder executar os comandos descritos abaixo.
 
-> É fortemente indicado o uso de ambientes virtuais do tipo [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html).
+```
+python -m venv env  
+```
+
+```
+source /env/bin/activate
+```
 
 ```
 (env)$ pip install -r requirements.txt
 ```
 
-Este comando instala as dependências/bibliotecas, descritas no arquivo `requirements.txt`.
-
-Para executar a API  basta executar:
+Para inicializar a API basta executar:
 
 ```
-(env)$ flask run --host 0.0.0.0 --port 5000
+(env)$ flask run --host 0.0.0.0 --port 5001
 ```
 
-Em modo de desenvolvimento é recomendado executar utilizando o parâmetro reload, que reiniciará o servidor
-automaticamente após uma mudança no código fonte. 
+Após a inicializacao do servidor, o arquivo db.sqlite3 será criado automaticamente com as duas tabelas do sistema.
+
+Para carga inicial na tabela de tipo de despesas: 
+    - finalize o servidor com o comando CTRL+C no terminal
+    - execute o arquivo script_insert_tipo_despesa.py clicando com o botão direito do mouse e utilizando a opçao “Executar arquivo do Python no terminal”
+
+Certifique que a tabela tipo_despesa esteja devidamente populada no arquivo db.sqlite3
+
+Inicialze novamente a API:
 
 ```
-(env)$ flask run --host 0.0.0.0 --port 5000 --reload
+(env)$ flask run --host 0.0.0.0 --port 5001
 ```
 
-Abra o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador para verificar o status da API em execução.
+Abra o [http://localhost:5001/#/](http://localhost:5001/#/) no navegador para verificar se a aplicacao esta no ar.
+
+
