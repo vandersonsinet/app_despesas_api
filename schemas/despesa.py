@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional, List
 from model.despesa import Despesa
+from schemas.tipo_despesa import TipoDespesaSchema
 
 
 class DespesaEditarSchema(BaseModel):
@@ -10,14 +11,23 @@ class DespesaEditarSchema(BaseModel):
     descricao: str 
     quantidade: Optional[int]
     valor: float
+    tipo_despesa_id: int
 
 class DespesaSchema(BaseModel):
     """ Define como uma nova despesa a ser inserida deve ser representada
     """
-    descricao: str = "Despesa de Alimentação"
-    quantidade: Optional[int] = 1
-    valor: float = 75.00
+    descricao: str
+    quantidade: Optional[int]
+    valor: float
+    tipo_despesa_id: int
 
+class ApresentaDespesaSchema(BaseModel):
+
+    descricao: str
+    quantidade: Optional[int]
+    valor: float
+    tipo_despesa_id: int
+    tipo_despesa: TipoDespesaSchema 
 
 class DespesaBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca que será
@@ -26,9 +36,9 @@ class DespesaBuscaSchema(BaseModel):
     nome: str = "Teste"
 
 class ListagemDespesasSchema(BaseModel):
-    """ Define como uma listagem de produtos será retornada.
+    """ Define como uma listagem de despesas será retornada.
     """
-    produtos:List[DespesaSchema]
+    despesas:List[ApresentaDespesaSchema]
 
 
 def apresenta_despesas(despesas: List[Despesa]):
@@ -41,7 +51,8 @@ def apresenta_despesas(despesas: List[Despesa]):
             "descricao": despesa.descricao,
             "quantidade": despesa.quantidade,
             "valor": despesa.valor,
-            "id": despesa.id,
+            "id_despesa": despesa.id,
+            "tipo_despesa": {"id": despesa.tipo_despesa.id, "descricao": despesa.tipo_despesa.descricao}
         })
 
     return {"despesas": result}
@@ -51,7 +62,7 @@ class DespesaViewSchema(BaseModel):
     """ Define como uma despesa será retornada: despesa.
     """
     id: int = 1
-    nome: str = "Despesa de Deslocamento"
+    descricao: str = "Despesa de Deslocamento"
     quantidade: Optional[int] = 1
     valor: float = 50.00
 
@@ -68,7 +79,7 @@ def apresenta_despesa(despesa: Despesa):
     """
     return {
         "id": despesa.id,
-        "nome": despesa.nome,
+        "descricao": despesa.descricao,
         "quantidade": despesa.quantidade,
         "valor": despesa.valor
     }
