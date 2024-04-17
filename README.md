@@ -40,12 +40,6 @@ Python script_insert_tipo_despesa.py
 
 Certifique que a tabela tipo_despesa esteja devidamente populada no arquivo db.sqlite3
 
-Inicialize novamente a API:
-
-```
-(env)$ flask run --host 0.0.0.0 --port 5001
-```
-
 Abra o [http://localhost:5001/#/](http://localhost:5001/#/) no navegador para verificar se a aplicacao esta no ar.
 
 
