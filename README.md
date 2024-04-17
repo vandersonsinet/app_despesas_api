@@ -1,6 +1,7 @@
 # Minha API
 
 Esta aplicacao tem o objetivo de manter um cadastro de despesas.
+Foi utilizada a versao do Python 3.12.2
 
 ---
 ## Como executar 
