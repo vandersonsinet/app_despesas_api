@@ -14,7 +14,7 @@ python -m venv env
 ```
 
 ```
-env/Script/activate
+env/Scripts/activate
 ```
 
 ```
@@ -31,7 +31,7 @@ Após a inicializacao do servidor, o arquivo db.sqlite3 será criado automaticam
 
 Para carga inicial na tabela de tipo de despesas, deverao ser executado os passos abaixo:
 
-Abra um novo terminal e navegue até a pasta raiz do projeto app_despesas_api/
+Abra um novo terminal e navegue até a pasta raiz do projeto
 
 Execute p comando abaixo para carga de inserts de tipo de despesas
 
