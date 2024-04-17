@@ -6,6 +6,7 @@ import os
 # importando os elementos definidos no modelo
 from model.base import Base
 from model.despesa import Despesa
+from model.tipo_despesa import TipoDespesa
 
 db_path = "database/"
 # Verifica se o diretorio não existe
