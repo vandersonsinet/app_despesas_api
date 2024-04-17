@@ -13,7 +13,7 @@ python -m venv env
 ```
 
 ```
-/env/bin/activate
+env/Script/activate
 ```
 
 ```
@@ -28,13 +28,19 @@ Para inicializar a API basta executar:
 
 Após a inicializacao do servidor, o arquivo db.sqlite3 será criado automaticamente com as duas tabelas do sistema.
 
-Para carga inicial na tabela de tipo de despesas: 
-    - finalize o servidor com o comando CTRL+C no terminal
-    - execute o arquivo script_insert_tipo_despesa.py clicando com o botão direito do mouse e utilizando a opçao “Executar arquivo do Python no terminal”
+Para carga inicial na tabela de tipo de despesas, deverao ser executado os passos abaixo:
+
+Abra um novo terminal e navegue até a pasta raiz do projeto app_despesas_api/
+
+Execute p comando abaixo para carga de inserts de tipo de despesas
+
+```
+Python script_insert_tipo_despesa.py
+````
 
 Certifique que a tabela tipo_despesa esteja devidamente populada no arquivo db.sqlite3
 
-Inicialze novamente a API:
+Inicialize novamente a API:
 
 ```
 (env)$ flask run --host 0.0.0.0 --port 5001
